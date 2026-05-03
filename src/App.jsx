@@ -124,7 +124,10 @@ export default function App() {
             marginBottom: 8,
             lineHeight: 1.1,
           }}>
-            PixelForge
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+              <img src="/favicon.svg" alt="PixelForge logo" style={{ width: 30, height: 30 }} />
+              <span>PixelForge</span>
+            </span>
           </h1>
           <p style={{ fontSize: 14, color: 'var(--text-muted)', letterSpacing: '0.4px' }}>
             Convert · Resize · Compress · Crop · Filter · Watermark — all in your browser
