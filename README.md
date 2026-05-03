@@ -47,4 +47,4 @@ vercel
 3. Run `npm run build` then deploy `dist/` to gh-pages branch
 
 ## Tech stack
-- React 18, Vite 6, react-dropzone, HTML5 Canvas API
+- React 19, Vite 8, react-dropzone, HTML5 Canvas API
