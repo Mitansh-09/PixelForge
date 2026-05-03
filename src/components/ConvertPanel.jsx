@@ -34,7 +34,7 @@ export function ConvertPanel({ imageState, run, processing, result }) {
           {FORMATS.map(({ fmt: f, label, sub }) => (
             <ChipButton key={f} selected={fmt === f} onClick={() => setFmt(f)}>
               {label}
-              <div style={{ fontSize: 10, color: fmt === f ? '#7c6abf' : '#4b5563', marginTop: 2 }}>{sub}</div>
+              <div style={{ fontSize: 10, color: fmt === f ? 'var(--accent)' : 'var(--text-muted)', marginTop: 2 }}>{sub}</div>
             </ChipButton>
           ))}
         </div>

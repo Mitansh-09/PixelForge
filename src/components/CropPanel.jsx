@@ -54,10 +54,10 @@ export function CropPanel({ imageState, run, processing, result }) {
               onClick={() => applyRatio(label)}
               style={{
                 padding: '9px 6px',
-                background: ratio === label ? 'rgba(124,58,237,0.15)' : 'rgba(255,255,255,0.04)',
-                border: `1.5px solid ${ratio === label ? '#7c3aed' : 'rgba(255,255,255,0.1)'}`,
+                background: ratio === label ? 'var(--accent-dim)' : 'var(--surface-1)',
+                border: `1.5px solid ${ratio === label ? 'var(--accent)' : 'var(--chip-border)'}`,
                 borderRadius: 10,
-                color: ratio === label ? '#a78bfa' : '#9ca3af',
+                color: ratio === label ? 'var(--accent)' : 'var(--text-secondary)',
                 fontSize: 12,
                 fontWeight: 600,
                 cursor: 'pointer',

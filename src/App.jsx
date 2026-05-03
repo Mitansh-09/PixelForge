@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { DropZone } from './components/DropZone'
 import { ConvertPanel } from './components/ConvertPanel'
 import { ResizePanel } from './components/ResizePanel'
@@ -25,6 +25,16 @@ export default function App() {
   const [results, setResults] = useState({})
   const [processing, setProcessing] = useState(false)
   const canvasRef = useRef(document.createElement('canvas'))
+  const [theme, setTheme] = useState(() => {
+    const stored = localStorage.getItem('theme')
+    if (stored) return stored
+    return window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+  })
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem('theme', theme)
+  }, [theme])
 
   const loadFile = async (file) => {
     if (!file || !file.type.startsWith('image/')) return
@@ -77,6 +87,31 @@ export default function App() {
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 860, margin: '0 auto', padding: '36px 20px 80px' }}>
 
         {/* Header */}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 10 }}>
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              background: 'var(--bg-surface)',
+              border: '1px solid var(--border)',
+              borderRadius: 999,
+              padding: '6px 12px',
+              color: 'var(--text-secondary)',
+              fontSize: 12,
+              fontWeight: 600,
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'var(--bg-surface-hover)' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'var(--bg-surface)' }}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
+          </button>
+        </div>
+
         <header style={{ textAlign: 'center', marginBottom: 44 }}>
           <h1 style={{
             fontFamily: 'var(--font-display)',
@@ -94,7 +129,7 @@ export default function App() {
           <p style={{ fontSize: 14, color: 'var(--text-muted)', letterSpacing: '0.4px' }}>
             Convert · Resize · Compress · Crop · Filter · Watermark — all in your browser
           </p>
-          <p style={{ fontSize: 11, color: '#374151', marginTop: 6 }}>
+          <p style={{ fontSize: 11, color: 'var(--muted-strong)', marginTop: 6 }}>
             🔒 100% client-side — your images never leave your device
           </p>
         </header>
@@ -106,7 +141,7 @@ export default function App() {
         <div style={{
           display: 'flex',
           gap: 5,
-          background: 'rgba(255,255,255,0.03)',
+          background: 'var(--bg-surface)',
           border: '1px solid var(--border)',
           borderRadius: 'var(--radius-lg)',
           padding: 5,
@@ -156,7 +191,7 @@ export default function App() {
         <div id="result-scroll-anchor" />
 
         {/* Footer */}
-        <footer style={{ textAlign: 'center', marginTop: 60, color: '#374151', fontSize: 12 }}>
+        <footer style={{ textAlign: 'center', marginTop: 60, color: 'var(--muted-strong)', fontSize: 12 }}>
           Built with ❤️ · PixelForge · All processing is done locally in your browser
         </footer>
       </div>

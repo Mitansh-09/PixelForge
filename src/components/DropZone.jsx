@@ -28,7 +28,7 @@ export function DropZone({ onFile, imageState, onClear }) {
         animation: 'fadeUp 0.3s ease',
       }}>
         <div style={{
-          background: 'rgba(255,255,255,0.04)',
+          background: 'var(--surface-1)',
           border: '1px solid var(--border)',
           borderRadius: 'var(--radius-md)',
           padding: 10,
@@ -61,7 +61,7 @@ export function DropZone({ onFile, imageState, onClear }) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 5,
-                background: 'rgba(255,255,255,0.05)',
+                background: 'var(--surface-2)',
                 border: '1px solid var(--border)',
                 borderRadius: 20,
                 padding: '4px 12px',

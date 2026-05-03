@@ -72,8 +72,8 @@ export function WatermarkPanel({ imageState, run, processing, result }) {
             placeholder="Your watermark text"
             style={{
               flex: 1,
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.12)',
+              background: 'var(--surface-2)',
+              border: '1px solid var(--border-mid)',
               borderRadius: 8,
               color: 'var(--text-primary)',
               padding: '7px 12px',
@@ -89,7 +89,7 @@ export function WatermarkPanel({ imageState, run, processing, result }) {
             type="color"
             value={color}
             onChange={e => setColor(e.target.value)}
-            style={{ width: 44, height: 34, borderRadius: 8, border: '1px solid rgba(255,255,255,0.15)', cursor: 'pointer', padding: 2, background: 'transparent' }}
+            style={{ width: 44, height: 34, borderRadius: 8, border: '1px solid var(--border-mid)', cursor: 'pointer', padding: 2, background: 'transparent' }}
           />
         </Row>
       </Card>
@@ -110,10 +110,10 @@ export function WatermarkPanel({ imageState, run, processing, result }) {
               onClick={() => setPosition(p)}
               style={{
                 padding: '9px 8px',
-                background: position === p ? 'rgba(124,58,237,0.15)' : 'rgba(255,255,255,0.04)',
-                border: `1.5px solid ${position === p ? '#7c3aed' : 'rgba(255,255,255,0.1)'}`,
+                background: position === p ? 'var(--accent-dim)' : 'var(--surface-1)',
+                border: `1.5px solid ${position === p ? 'var(--accent)' : 'var(--chip-border)'}`,
                 borderRadius: 10,
-                color: position === p ? '#a78bfa' : '#9ca3af',
+                color: position === p ? 'var(--accent)' : 'var(--text-secondary)',
                 fontSize: 12,
                 fontWeight: 600,
                 cursor: 'pointer',

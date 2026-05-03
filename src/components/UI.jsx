@@ -104,7 +104,7 @@ export function NumberInput({ value, onChange, placeholder, style }) {
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
       style={{
-        background: 'rgba(255,255,255,0.05)',
+        background: 'var(--surface-2)',
         border: '1px solid var(--border-mid)',
         borderRadius: 'var(--radius-sm)',
         color: 'var(--text-primary)',
@@ -125,7 +125,7 @@ export function Select({ value, onChange, children, style }) {
       value={value}
       onChange={e => onChange(e.target.value)}
       style={{
-        background: '#111120',
+        background: 'var(--bg-elevated)',
         border: '1px solid var(--border-mid)',
         borderRadius: 'var(--radius-sm)',
         color: 'var(--text-primary)',
@@ -155,7 +155,7 @@ export function ActionButton({ children, onClick, disabled, style }) {
           : 'linear-gradient(135deg, #7c3aed, #4f46e5)',
         border: 'none',
         borderRadius: 'var(--radius-md)',
-        color: disabled ? '#6b7280' : '#fff',
+  color: disabled ? 'var(--text-muted)' : '#fff',
         fontFamily: 'var(--font-display)',
         fontSize: 15,
         fontWeight: 700,
@@ -180,10 +180,10 @@ export function ChipButton({ children, selected, onClick }) {
       onClick={onClick}
       style={{
         padding: '9px 6px',
-        background: selected ? 'rgba(124,58,237,0.15)' : 'rgba(255,255,255,0.04)',
-        border: `1.5px solid ${selected ? '#7c3aed' : 'rgba(255,255,255,0.1)'}`,
+        background: selected ? 'var(--accent-dim)' : 'var(--surface-1)',
+        border: `1.5px solid ${selected ? 'var(--accent)' : 'var(--chip-border)'}`,
         borderRadius: 10,
-        color: selected ? '#a78bfa' : 'var(--text-secondary)',
+        color: selected ? 'var(--accent)' : 'var(--text-secondary)',
         fontSize: 12,
         fontWeight: 600,
         textAlign: 'center',
@@ -197,9 +197,9 @@ export function ChipButton({ children, selected, onClick }) {
 }
 
 /* ── Tip ──────────────────────────────────────────────── */
-export function Tip({ children }) {
+export function Tip({ children, style }) {
   return (
-    <p style={{ fontSize: 11, color: '#4b5563', marginTop: 6, fontStyle: 'italic' }}>
+    <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 6, fontStyle: 'italic', ...style }}>
       {children}
     </p>
   )
@@ -237,12 +237,12 @@ export function ResultPanel({ result }) {
           ['Format', ext],
         ].map(([label, val], i) => (
           <div key={i} style={{
-            background: 'rgba(255,255,255,0.04)',
+            background: 'var(--surface-1)',
             border: '1px solid var(--border)',
             borderRadius: 10,
             padding: '10px 14px'
           }}>
-            <div style={{ fontSize: 10, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 4 }}>{label}</div>
+            <div style={{ fontSize: 10, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 4 }}>{label}</div>
             <div style={{
               fontFamily: 'var(--font-display)',
               fontSize: 17,
